@@ -8,11 +8,7 @@ import matplotlib.pyplot as plt
 year = [1950, 1970, 1990, 2010]
 population = [2.519, 3.692, 5.263, 6.972]
 
-#linear plot:
-plt.plot(year, population)  # x,y
-plt.show()
-
-#scatter plot
+# scatter plot
+# =>when NOT ordered over time !
 plt.scatter(year, population)  # x,y
 plt.show()
-
