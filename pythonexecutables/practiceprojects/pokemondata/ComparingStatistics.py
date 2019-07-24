@@ -19,21 +19,25 @@ attack = np.array(pokemonData[['Attack']])
 defence = np.array(pokemonData[['Defense']])
 
 # finding types:
-types = np.array(pokemonData[["Type1"]])
-# print(types)=>set to color
-primeTypes = {'Bug': 'lightgreen', 'Dark': 'darkviolet', 'Dragon': 'gold', 'Electric': 'orange', 'Fairy': 'violet',
-              'Fighting': 'coral', 'Fire': 'red', 'Flying': 'deepskyblue', 'Ghost': 'lightgrey', 'Grass': 'green',
-              'Ground': 'sandbrown', 'Ice': 'darkcyan', 'Normal': 'ivory', 'Poison': 'purple', 'Psychic': 'fuchsia',
+types = np.array(pokemonData[["Type1"]])[:,0]
+primeTypes = {'Bug': 'lightgreen', 'Dark': 'violet', 'Dragon': 'gold', 'Electric': 'orange', 'Fairy': 'darkviolet',
+              'Fighting': 'red', 'Fire': 'red', 'Flying': 'lightblue', 'Ghost': 'violet', 'Grass': 'darkgreen',
+              'Ground': 'brown', 'Ice': 'cyan', 'Normal': 'ivory', 'Poison': 'purple', 'Psychic': 'fuchsia',
               'Rock': 'maroon', 'Steel': 'grey', 'Water': 'blue'}
 
-coloredtypes= np.array(np.vectorize(primeTypes.get)(types))
-#print(coloredtypes)
+coloredtypes =np.vectorize(primeTypes.get)(types)
+
 
 # plotting something
-plt.scatter(attack, defence, s=hp, alpha=0.8)#,c=coloredtypes)
+plt.scatter(attack, defence, s=hp, alpha=0.8 , c=coloredtypes)
 plt.xlabel('attack')
 plt.ylabel('defence')
 plt.title('attack/defence distribution')
+
+names = np.array(pokemonData[["Name"]])[:,0]
+
+#for i, txt in enumerate(names):
+#    plt.annotate(txt, (attack[i], defence[i]))
 
 # show
 plt.grid(True)
