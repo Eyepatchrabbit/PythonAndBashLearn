@@ -9,19 +9,23 @@ mypath = Path().parent.absolute()
 reletivePath = "/../../resources/csvfiles/pokemon.csv"
 
 # Fix import by including index_col
-pokemonData = pd.read_csv(str(mypath) + reletivePath, index_col=0)
+pokemonData = pd.read_csv(str(mypath) + reletivePath)#, index_col=0)
 
-# some filters
-pokemonData = pokemonData[pokemonData["Generation"] <= 2]
-# pokemonData = pokemonData[pokemonData["Legendary"]]
-typeToFilterout = "Ghost"
+#filters generation, Legendary, starter
+#pokemonData = pokemonData[pokemonData["Generation"] == 1]
+#pokemonData = pokemonData[pokemonData["Legendary"]]
+pokemonData = pokemonData[pokemonData["Starter"]]
+
+#filter out types
+#typeToFilterout = "Steel"
 #pokemonData = pokemonData[np.logical_or(pokemonData["Type1"] == typeToFilterout, pokemonData["Type2"] == typeToFilterout)]
 
-# filtering out mega's =>needs tweeking
-# for lab, row in pokemonData.iterrows():
-#    pokemonData.loc[lab, "Mega"] = "Mega" in row["Name"]
-# pokemonData = pokemonData[pokemonData["Mega"] != True]
+# filtering out mega's
+for lab, row in pokemonData.iterrows():
+   pokemonData.loc[lab, "Mega"] = "Mega_" in str(row["Name"])
+pokemonData = pokemonData[pokemonData["Mega"] != True]
 
+#HP,Attack,Defense,Sp._Atk,Sp._Def,Speed
 x = 'Attack'
 y = 'Defense'
 
@@ -34,7 +38,7 @@ defence = np.array(pokemonData[[y]])
 types = np.array(pokemonData[["Type1"]])[:, 0]
 primeTypes = {'Bug': 'lightgreen', 'Dark': 'violet', 'Dragon': 'gold', 'Electric': 'orange', 'Fairy': 'darkviolet',
               'Fighting': 'red', 'Fire': 'red', 'Flying': 'lightblue', 'Ghost': 'violet', 'Grass': 'darkgreen',
-              'Ground': 'brown', 'Ice': 'cyan', 'Normal': 'ivory', 'Poison': 'purple', 'Psychic': 'fuchsia',
+              'Ground': 'brown', 'Ice': 'cyan', 'Normal': 'khaki', 'Poison': 'purple', 'Psychic': 'fuchsia',
               'Rock': 'maroon', 'Steel': 'grey', 'Water': 'blue'}
 
 coloredtypes = np.vectorize(primeTypes.get)(types)
