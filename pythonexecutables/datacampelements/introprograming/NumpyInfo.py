@@ -41,3 +41,11 @@ np_positions = np.array(['GK', 'M', 'A', 'D'])
 np_heights = np.array([191, 184, 185, 180])
 
 print("GK: ", np_heights[np_positions == 'GK'])
+
+
+print('\n')
+arrayelementslise=np.array([[0,1,2,3,4],
+                            [5,6,7,8,9]])
+print(arrayelementslise[:,-1])
+print(arrayelementslise[-1,:])
+print(arrayelementslise[1,1:4])
