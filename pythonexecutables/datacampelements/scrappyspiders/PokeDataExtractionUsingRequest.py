@@ -1,28 +1,29 @@
 from scrapy import Selector
 import requests
 
+
 ###how get a html from webpage:
 # exmple usinf requests:
-
-
 def extractionDataStats(name):
-    print("\nGetting viatals "+name.capitalize()+":")
-    rhydonPokedexPage = "https://pokemondb.net/pokedex/"+name
+    print("\nGetting viatals " + name.capitalize() + ":")
+    pokedexPage = "https://pokemondb.net/pokedex/" + name
 
-    htmlPoke = requests.get(rhydonPokedexPage).content
+    # use request to get the webpage
+    htmlPoke = requests.get(pokedexPage).content
 
+    # use selector to extract data from the HTML source
     pageselection = Selector(text=htmlPoke)
 
-    #battlestats:
-    vitalsExtract=pageselection.xpath("//h2[text()='Base stats']/..//table[@class='vitals-table']/tbody/tr")
+    # get main location of the vitals:
+    vitalsExtract = pageselection.xpath("//h2[text()='Base stats']/..//table[@class='vitals-table']/tbody/tr")
 
     vitalsNames = vitalsExtract.xpath("./th//text()").extract()
-    vitalStats=vitalsExtract.xpath(".//td[@class='cell-num'][1]/text()").extract()
+    vitalStats = vitalsExtract.xpath(".//td[@class='cell-num'][1]/text()").extract()
 
-    vitals=zip(vitalsNames,vitalStats)
+    vitals = zip(vitalsNames, vitalStats)
 
     for name, stat in vitals:
-        print(name,stat)
+        print(name, stat)
 
 
 extractionDataStats('rhyhorn')

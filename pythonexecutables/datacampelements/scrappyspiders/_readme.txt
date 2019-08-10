@@ -32,3 +32,18 @@ Handy elements  seen to remember:
 *can chain xpaths
     sel.xpath( '//div' ).xpath( "./span/p[3]" ) = sel.xpath('//div/span/p[3]')
 
+
+Udemy scrapy tutorials
+#########################
+after the lessons on scrapy and the spiders in datachamp feeled that there was more to the subject
+=>so took on an udemy course on scrappy ("Scrapy: Powerful Web Scraping & Crawling with Python")
+->also looked into Requests package =>considering using scrapy can be overkill for some elements
+
+udemy courses taken:
+-Scrapy: Powerful Web Scraping & Crawling with Python
+
+youtube courses done=
+-
+-
+
+
