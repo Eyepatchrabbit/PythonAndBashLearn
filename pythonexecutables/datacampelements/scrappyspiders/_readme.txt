@@ -12,6 +12,10 @@ Possible sites to practice on:
 
 * https://bokunoheroacademia.fandom.com/wiki/My_Hero_Academia_Wiki
 
+* http://www.omdbapi.com =>watchout, need to generate first a key on the website !
+
+* https://httpbin.org
+
 (YES I'm a nerd at hart :p )
 
 
@@ -43,7 +47,7 @@ udemy courses taken:
 -Scrapy: Powerful Web Scraping & Crawling with Python
 
 youtube courses done=
--
+-Python Requests Tutorial: Request Web Pages, Download Images, POST Data, Read JSON, and More (https://www.youtube.com/watch?v=tb8gHvYlCFs)
 -
 
 

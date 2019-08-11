@@ -5,7 +5,8 @@ import requests
 ###how get a html from webpage:
 # exmple usinf requests:
 def extractionDataStats(name):
-    print("\nGetting viatals " + name.capitalize() + ":")
+    vitalDictionary = {'name': name}
+
     pokedexPage = "https://pokemondb.net/pokedex/" + name
 
     # use request to get the webpage
@@ -23,9 +24,23 @@ def extractionDataStats(name):
     vitals = zip(vitalsNames, vitalStats)
 
     for name, stat in vitals:
-        print(name, stat)
+        vitalDictionary[name] = stat
+
+    return vitalDictionary
 
 
-extractionDataStats('rhyhorn')
-extractionDataStats('rhydon')
-extractionDataStats('abra')
+def printingPokedataRetrieved(listData):
+    for pokemon in listData:
+        keys = pokemon.keys()
+        for key in keys:
+            print(key.capitalize(), pokemon[key])
+        print("")
+
+
+pokedictionary = []
+pokelist = ['rhyhorn', 'rhydon', 'abra']
+
+for pokemon in pokelist:
+    pokedictionary.append(extractionDataStats(pokemon))
+
+printingPokedataRetrieved(pokedictionary)

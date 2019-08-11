@@ -12,3 +12,18 @@ added project by using the following:
 
 can check with "scrapy list" ->lists the spiders in the project
 
+
+to run the spider:
+    -> scrapy crawl quotes
+        =>inside the directory where the cfg file is located (start of the project)
+
+
+Can see that it wants to go to the robots.txt site of the page:
+    =>seeing if there are 'scraping rules' for the site
+    ->to set this behaviour off need to do the following:
+        -go to the settings.py file that was made and set following to false
+            # Obey robots.txt rules
+            ROBOTSTXT_OBEY = False
+
+
+
