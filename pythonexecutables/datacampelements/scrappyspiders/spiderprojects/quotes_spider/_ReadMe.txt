@@ -31,4 +31,6 @@ robots.txt site of the page:
             ROBOTSTXT_OBEY = False
 
 
-
+when made a spider can senc the yielded output to an output-file;
+    example in quotes_spider used "scrapy crawl quotes -o items.csv"
+        ->made a file items.cs at the start of the spider project
